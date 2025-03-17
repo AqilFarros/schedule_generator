@@ -100,6 +100,8 @@ class _GeminiPageState extends State<GeminiPage> {
                 onPressed: isLoading ? null : generateSchedule,
                 child: Text("Generate Schedule"),
               ),
+              const SizedBox(height: 10),
+              _buildResult(),
             ],
           ),
         ),
@@ -138,11 +140,14 @@ class _GeminiPageState extends State<GeminiPage> {
   }
 
   Widget _datePicker(String label, DateTime? date, VoidCallback onTap) {
-    return ListTile(
-      title: Text(
-        date == null
-            ? '$label pilih tanggal'
-            : '$label ${DateFormat('yyyy-MM-dd').format(date)}',
+    return GestureDetector(
+      onTap: onTap,
+      child: ListTile(
+        title: Text(
+          date == null
+              ? '$label pilih tanggal'
+              : '$label ${DateFormat('yyyy-MM-dd').format(date)}',
+        ),
       ),
     );
   }
