@@ -146,4 +146,8 @@ class _GeminiPageState extends State<GeminiPage> {
       ),
     );
   }
+
+  Widget _buildResult() {
+    return isLoading ? CircularProgressIndicator() : Text(_result);
+  }
 }
